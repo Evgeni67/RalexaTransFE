@@ -1,13 +1,12 @@
 <template>
   <div class="mainWrapper">
-    <div class="landingPage">
+    <div class="landingPage animate-on-scroll">
       <img :src="backgroundImg" class="background" />
       <div class="filter"> </div>
       <div class="Content">
         <div class="header">
           <div class="logo"> RALEXATRANS</div>
           <button class="contactUs">Свържете се с нас </button>
-
         </div>
         <div class="midTextSection">
           <div class="text">Движим </div>
@@ -16,23 +15,25 @@
         </div>
         <div class="subText">
           Професионални транспортни услуги в София и страната с товарни автомобили до 3,5 тона. Гарантирана надеждност и
-          коректност. </div>
+          коректност.
+        </div>
         <btn class="MainBtn">За нас </btn>
       </div>
     </div>
-    <div class="secondPage">
+
+    <div class="secondPage animate-on-scroll">
       <div class="cardsContainer">
-        <div v-for="element in cards" class="card" :class="!element.isWhite && 'cardNotWhite'">
+        <div v-for="element in cards" class="card animate-on-scroll" :class="!element.isWhite && 'cardNotWhite'">
           <img :src="element.img" class="cardImg" />
-          <span class="cardText">{{ element.text }} </span>
+          <span class="cardText">{{ element.text }}</span>
         </div>
       </div>
     </div>
 
-    <div class="thirdPage">
+    <div class="thirdPage animate-on-scroll">
       <img :src="map" class="map" />
       <div class="bigCardsWrapper">
-        <div v-for="bigCard in bigCards" class="bigCard">
+        <div v-for="bigCard in bigCards" class="bigCard animate-on-scroll">
           <img class="bigCardImg" :src="bigCard.cardImg" />
           <div class="bigCardHeader"> {{ bigCard.title }}</div>
           <div v-for="bigCardText in bigCard.subTexts" class="bigCardText"> {{ bigCardText }}</div>
@@ -40,7 +41,8 @@
       </div>
       <img class="busImg" :src="busImg" />
     </div>
-    <div class="fourthPage">
+
+    <div class="fourthPage animate-on-scroll">
       <div class="Texts">
         <div class="Heading">Защо нас?</div>
         <div class="main">"Бързина и ефективност" </div>
@@ -53,60 +55,58 @@
         <div class="main"> "Местен партньор, глобален обхват" </div>
         <div class="sub"> Като българска фирма, ние разбираме местните нужди и предлагаме решения с международно
           качество.</div>
-
-
       </div>
       <div class="ImageWithBtn"> <img :src="bulgaria" class="bulgaria" />
         <div class="MainBtn MainBtn2">Запазете транспорт сега </div>
       </div>
     </div>
-    <div class="ContactFormWrapper">
-  <img :src="trucksblack" class="trucksBlack" />
-  <div class="contactForm">
-    <span class="contactHead">Свържете се с нас</span>
-    <span class="label">Име *</span>
-    <input v-model="formData.name" class="inputText" placeholder="Вашето име" />
-    
-    <span class="label">Имейл адрес *</span>
-    <input v-model="formData.email" class="inputText" placeholder="Вашият имейл" type="email" />
-    
-    <span class="label">Компания</span>
-    <input v-model="formData.company" class="inputText" placeholder="Име на компанията" />
-    
-    <span class="label">Телефонен номер *</span>
-    <input v-model="formData.phone" class="inputText" placeholder="Вашият телефон" type="tel" />
-    
-    <button @click="submitForm" class="sendBtn">Изпрати</button>
-  </div>
-</div>
 
+    <div class="ContactFormWrapper animate-on-scroll">
+      <img :src="trucksblack" class="trucksBlack" />
+      <div class="contactForm">
+        <span class="contactHead">Свържете се с нас</span>
+        <span class="label">Име *</span>
+        <input v-model="formData.name" class="inputText" placeholder="Вашето име" />
 
+        <span class="label">Имейл адрес *</span>
+        <input v-model="formData.email" class="inputText" placeholder="Вашият имейл" type="email" />
 
-    <div class="footer">
+        <span class="label">Компания</span>
+        <input v-model="formData.company" class="inputText" placeholder="Име на компанията" />
+
+        <span class="label">Телефонен номер *</span>
+        <input v-model="formData.phone" class="inputText" placeholder="Вашият телефон" type="tel" />
+
+        <button @click="submitForm" class="sendBtn">Изпрати</button>
+      </div>
+    </div>
+
+    <div class="footer animate-on-scroll">
       <div class="TopPart">
         <div v-for="column in footerInfo.columns" class="columnWrapper">
-          <div class="Text">{{ column.text }} </div>
+          <div v-for="row in column" class="column">
+            <div class="Text">{{ row.text }}</div>
+          </div>
         </div>
       </div>
       <div class="BottomPart"> </div>
     </div>
   </div>
-
 </template>
 
 <script>
-import background from '../assets/images/mainBackground.png'
-import handshake from '../assets/images/handshake.png'
-import truck from '../assets/images/truck.png'
-import blank from '../assets/images/blank.png'
-import map from '../assets/images/map.png'
-import cityscape from '../assets/images/cityscape.png'
-import cargo from '../assets/images/cargo.png'
-import waterTruck from '../assets/images/waterTruck2.png'
-import emergency from '../assets/images/emergency.png'
-import busImg from '../assets/images/busImg.png'
-import bulgaria from '../assets/images/bulgaria.png'
-import trucksblack from '../assets/images/trucksblack.png'
+import background from '../assets/images/mainBackground.png';
+import handshake from '../assets/images/handshake.png';
+import truck from '../assets/images/truck.png';
+import blank from '../assets/images/blank.png';
+import map from '../assets/images/map.png';
+import cityscape from '../assets/images/cityscape.png';
+import cargo from '../assets/images/cargo.png';
+import waterTruck from '../assets/images/waterTruck2.png';
+import emergency from '../assets/images/emergency.png';
+import busImg from '../assets/images/busImg.png';
+import bulgaria from '../assets/images/bulgaria.png';
+import trucksblack from '../assets/images/trucksblack.png';
 
 export default {
   name: 'DefaultLayout',
@@ -115,7 +115,8 @@ export default {
       backgroundImg: background,
       map,
       trucksblack,
-      busImg, bulgaria,
+      busImg,
+      bulgaria,
       footerInfo: {
         columns: [
           [{ text: 'Text' }, { text: 'Text' }, { text: 'Text' }],
@@ -141,17 +142,71 @@ export default {
           isWhite: false
         }
       ],
-      bigCards: [/* big cards content */],
+      bigCards: [
+        {
+          title: 'Консултантски услуги за логистика и транспорт',
+          subTexts: [
+            'Анализ на транспортните нужди на клиенти и оптимизация на логистичните процеси.',
+            'Предложения за намаляване на разходите за транспорт чрез планиране на маршрути и консолидация на товари.',
+            'Създаване на персонализирани логистични стратегии за фирми.'
+          ],
+          cardImg: cargo
+        },
+        {
+          title: 'Транспорт за частни и корпоративни клиенти',
+          subTexts: [
+            'Транспорт на мебели и вещи – при премествания на домове или офиси',
+            'Транспорт за събития – пренос на оборудване за изложения, концерти и събития.',
+            'Абонаментен транспорт – дългосрочен договор за редовни превози.'
+          ],
+          cardImg: cityscape
+        },
+        {
+          title: 'Превоз на горива и течности',
+          subTexts: [
+            'Специализирани цистерни за транспорт на горива, масла или други течности.',
+            'Превоз на вода за хуманитарни цели или строителни обекти.'
+          ],
+          cardImg: waterTruck
+        },
+        {
+          title: 'Извънреден и спешен транспорт',
+          subTexts: [
+            '24/7 логистика за спешни доставки на оборудване, медицински консумативи или критични части.',
+            'Реакция при аварийни ситуации.'
+          ],
+          cardImg: emergency
+        }
+      ],
       formData: {
         name: '',
         email: '',
         company: '',
         phone: ''
       },
-      apiUrl: 'http://localhost:9999/send-email' // Change this to your API URL
+      apiUrl: 'https://ralexatrans.netlify.app/api/send-email'
     };
   },
+  mounted() {
+    this.setupScrollAnimations();
+  },
   methods: {
+    setupScrollAnimations() {
+      const elements = document.querySelectorAll('.animate-on-scroll');
+      const observer = new IntersectionObserver(
+        (entries, observer) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.2 }
+      );
+
+      elements.forEach(el => observer.observe(el));
+    },
     async submitForm() {
       if (!this.formData.name || !this.formData.email || !this.formData.phone) {
         alert('Моля, попълнете всички задължителни полета.');
@@ -168,13 +223,13 @@ export default {
             name: this.formData.name,
             email: this.formData.email,
             company: this.formData.company || 'Не е посочено',
-            phone: this.formData.phone,
+            phone: this.formData.phone
           })
         });
 
         if (response.ok) {
           alert('Вашето съобщение беше изпратено успешно!');
-          this.formData = { name: '', email: '', company: '', phone: '' }; // Reset form
+          this.formData = { name: '', email: '', company: '', phone: '' };
         } else {
           alert('Възникна проблем при изпращането на съобщението.');
         }
@@ -185,16 +240,18 @@ export default {
     }
   }
 };
-
 </script>
 
 <style scoped>
 .footer {
   display: flex;
   width: 100%;
-  height: 500px;
   background-color: white;
   flex-direction: column;
+  position: relative;
+  z-index: 5;
+  padding: 30px;
+  margin-top: 200px;
 }
 
 .TopPart {
@@ -235,6 +292,7 @@ export default {
   flex-direction: column;
   padding-top: 50px;
   background-color: #F3FFFD;
+  z-index: 3;
 
 }
 
@@ -264,6 +322,16 @@ export default {
   margin: 0 auto;
   column-gap: 20px;
   z-index: 5;
+}
+
+.column{
+  display: flex;
+  flex-direction: column;
+  gap:15px;
+
+  &:first-child{
+    font-weight: bold;
+  }
 }
 
 .bigCardImg {
@@ -384,7 +452,11 @@ export default {
     flex-direction: column;
   }
 }
-
+.columnWrapper{
+  display: flex;
+  flex-direction: column;
+  gap:15px
+}
 .MainBtn {
   display: flex;
   width: 150px;
@@ -603,4 +675,16 @@ margin-top: 15px;
   height: 50px;
   padding-left: 15px;
 }
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.animate-on-scroll.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Add your existing styles here */
 </style>
