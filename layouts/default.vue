@@ -61,20 +61,25 @@
       </div>
     </div>
     <div class="ContactFormWrapper">
-      <img :src="trucksblack" class="trucksBlack"/>
-      <div class="contactForm">
-        <span class="contactHead">Свържете се с нас </span>
-        <span class="label">Име *</span>
-        <input class="inputText" />
-        <span class="label">Имейл адрес *</span>
-        <input class="inputText" />
-        <span class="label">Компания </span>
-        <input class="inputText" />
-        <span class="label">име</span>
-        <input class="inputText" />
-        <button  class="sendBtn"> Изпрати</button>
-      </div>
-    </div>
+  <img :src="trucksblack" class="trucksBlack" />
+  <div class="contactForm">
+    <span class="contactHead">Свържете се с нас</span>
+    <span class="label">Име *</span>
+    <input v-model="formData.name" class="inputText" placeholder="Вашето име" />
+    
+    <span class="label">Имейл адрес *</span>
+    <input v-model="formData.email" class="inputText" placeholder="Вашият имейл" type="email" />
+    
+    <span class="label">Компания</span>
+    <input v-model="formData.company" class="inputText" placeholder="Име на компанията" />
+    
+    <span class="label">Телефонен номер *</span>
+    <input v-model="formData.phone" class="inputText" placeholder="Вашият телефон" type="tel" />
+    
+    <button @click="submitForm" class="sendBtn">Изпрати</button>
+  </div>
+</div>
+
 
 
     <div class="footer">
@@ -114,10 +119,9 @@ export default {
       footerInfo: {
         columns: [
           [{ text: 'Text' }, { text: 'Text' }, { text: 'Text' }],
+          [{ text: 'Text' }, { text: 'Text' }, { text: 'Text' }],
+          [{ text: 'Text' }, { text: 'Text' }, { text: 'Text' }],
           [{ text: 'Text' }, { text: 'Text' }, { text: 'Text' }]
-          , [{ text: 'Text' }, { text: 'Text' }, { text: 'Text' }]
-          , [{ text: 'Text' }, { text: 'Text' }, { text: 'Text' }]
-
         ]
       },
       cards: [
@@ -137,34 +141,51 @@ export default {
           isWhite: false
         }
       ],
-      bigCards: [{
-        title: 'Консултантски услуги за логистика и транспорт',
-        subTexts: ['Анализ на транспортните нужди на клиенти и оптимизация на логистичните процеси.',
-          'Предложения за намаляване на разходите за транспорт чрез планиране на маршрути и консолидация на товари.',
-          'Създаване на персонализирани логистични стратегии за фирми.'],
-        cardImg: cargo,
-      }, {
-        title: 'Транспорт за частни и корпоративни клиенти',
-        subTexts: ['Транспорт на мебели и вещи – при премествания на домове или офиси',
-          'Транспорт за събития – пренос на оборудване за изложения, концерти и събития.',
-          'Абонаментен транспорт – дългосрочен договор за редовни превози.'],
-        cardImg: cityscape,
-      }, {
-        title: 'Превоз на горива и течности',
-        subTexts: ['Специализирани цистерни за транспорт на горива, масла или други течности.',
-          'Превоз на вода за хуманитарни цели или строителни обекти.',
-        ],
-        cardImg: waterTruck,
-      }, {
-        title: 'Извънреден и спешен транспорт',
-        subTexts: ['24/7 логистика за спешни доставки на оборудване, медицински консумативи или критични части.',
-          'Реакция при аварийни ситуации.',
-        ],
-        cardImg: emergency,
-      }]
+      bigCards: [/* big cards content */],
+      formData: {
+        name: '',
+        email: '',
+        company: '',
+        phone: ''
+      },
+      apiUrl: 'http://localhost:9999/send-email' // Change this to your API URL
+    };
+  },
+  methods: {
+    async submitForm() {
+      if (!this.formData.name || !this.formData.email || !this.formData.phone) {
+        alert('Моля, попълнете всички задължителни полета.');
+        return;
+      }
+
+      try {
+        const response = await fetch(this.apiUrl, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            name: this.formData.name,
+            email: this.formData.email,
+            company: this.formData.company || 'Не е посочено',
+            phone: this.formData.phone,
+          })
+        });
+
+        if (response.ok) {
+          alert('Вашето съобщение беше изпратено успешно!');
+          this.formData = { name: '', email: '', company: '', phone: '' }; // Reset form
+        } else {
+          alert('Възникна проблем при изпращането на съобщението.');
+        }
+      } catch (error) {
+        console.error('Error sending email:', error);
+        alert('Възникна грешка при свързване със сървъра.');
+      }
     }
   }
-}
+};
+
 </script>
 
 <style scoped>
@@ -314,6 +335,7 @@ export default {
 
 .inputText{
   width: 100% !important;
+
 }
 
 .contactForm{
@@ -500,6 +522,7 @@ export default {
 
 .trucksBlack{
   width: 50%;
+  height: auto;
 }
 
 .fourthPage {
@@ -576,8 +599,8 @@ margin-top: 15px;
   border-radius: 5px;
   border: 2px solid #dddddd77;
   background-color: #f9f9f9;
-  width: 510px;
   max-width: 100%;
   height: 50px;
+  padding-left: 15px;
 }
 </style>
