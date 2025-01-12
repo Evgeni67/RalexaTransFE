@@ -2,28 +2,28 @@
   <div class="mainWrapper">
     <div class="landingPage animate-on-scroll">
       <img :src="backgroundImg" class="background" />
-      <div class="filter"> </div>
+      <div class="filter"></div>
       <div class="Content">
         <div class="header">
-          <div class="logo"> RALEXATRANS</div>
-          <button class="contactUs">Свържете се с нас </button>
+          <img class="logo" :src="logo" />
+          <button class="contactUs" @click="scrollToContact">Свържете се с нас</button>
         </div>
         <div class="midTextSection">
-          <div class="text">Движим </div>
-          <div class="text"> света</div>
-          <div class="text">за вас </div>
+          <div class="text">Движим</div>
+          <div class="text">света</div>
+          <div class="text">за вас</div>
         </div>
         <div class="subText">
           Професионални транспортни услуги в София и страната с товарни автомобили до 3,5 тона. Гарантирана надеждност и
           коректност.
         </div>
-        <btn class="MainBtn">За нас </btn>
+        <btn class="MainBtn" @click="scrollToWhyUs">За нас</btn>
       </div>
     </div>
 
     <div class="secondPage animate-on-scroll">
       <div class="cardsContainer">
-        <div v-for="element in cards" class="card animate-on-scroll" :class="!element.isWhite && 'cardNotWhite'">
+        <div v-for="element in cards" :key="element.text" class="card animate-on-scroll" :class="!element.isWhite && 'cardNotWhite'">
           <img :src="element.img" class="cardImg" />
           <span class="cardText">{{ element.text }}</span>
         </div>
@@ -33,10 +33,10 @@
     <div class="thirdPage animate-on-scroll">
       <img :src="map" class="map" />
       <div class="bigCardsWrapper">
-        <div v-for="bigCard in bigCards" class="bigCard animate-on-scroll">
+        <div v-for="bigCard in bigCards" :key="bigCard.title" class="bigCard animate-on-scroll">
           <img class="bigCardImg" :src="bigCard.cardImg" />
-          <div class="bigCardHeader"> {{ bigCard.title }}</div>
-          <div v-for="bigCardText in bigCard.subTexts" class="bigCardText"> {{ bigCardText }}</div>
+          <div class="bigCardHeader">{{ bigCard.title }}</div>
+          <div v-for="bigCardText in bigCard.subTexts" :key="bigCardText" class="bigCardText">{{ bigCardText }}</div>
         </div>
       </div>
       <img class="busImg" :src="busImg" />
@@ -45,19 +45,18 @@
     <div class="fourthPage animate-on-scroll">
       <div class="Texts">
         <div class="Heading">Защо нас?</div>
-        <div class="main">"Бързина и ефективност" </div>
-        <div class="sub">Оптимизираме маршрути и процеси, за да гарантираме скорост и качество. </div>
-        <div class="main">"Модерна техника" </div>
-        <div class="sub"> Нашият автопарк отговаря на всички съвременни стандарти за безопасност и екологичност.
-        </div>
-        <div class="main">"На разположение 24/7" </div>
-        <div class="sub">Ние сме тук, за да обслужваме вашите нужди, независимо от времето и мястото. </div>
-        <div class="main"> "Местен партньор, глобален обхват" </div>
-        <div class="sub"> Като българска фирма, ние разбираме местните нужди и предлагаме решения с международно
-          качество.</div>
+        <div class="main">"Бързина и ефективност"</div>
+        <div class="sub">Оптимизираме маршрути и процеси, за да гарантираме скорост и качество.</div>
+        <div class="main">"Модерна техника"</div>
+        <div class="sub">Нашият автопарк отговаря на всички съвременни стандарти за безопасност и екологичност.</div>
+        <div class="main">"На разположение 24/7"</div>
+        <div class="sub">Ние сме тук, за да обслужваме вашите нужди, независимо от времето и мястото.</div>
+        <div class="main">"Местен партньор, глобален обхват"</div>
+        <div class="sub">Като българска фирма, ние разбираме местните нужди и предлагаме решения с международно качество.</div>
       </div>
-      <div class="ImageWithBtn"> <img :src="bulgaria" class="bulgaria" />
-        <div class="MainBtn MainBtn2">Запазете транспорт сега </div>
+      <div class="ImageWithBtn">
+        <img :src="bulgaria" class="bulgaria" />
+        <div class="MainBtn MainBtn2">Запазете транспорт сега</div>
       </div>
     </div>
 
@@ -83,13 +82,13 @@
 
     <div class="footer animate-on-scroll">
       <div class="TopPart">
-        <div v-for="column in footerInfo.columns" class="columnWrapper">
-          <div v-for="row in column" class="column">
+        <div v-for="column in footerInfo.columns" :key="column[0].text" class="columnWrapper">
+          <div v-for="row in column" :key="row.text" class="column">
             <div class="Text">{{ row.text }}</div>
           </div>
         </div>
       </div>
-      <div class="BottomPart"> </div>
+      <div class="BottomPart"></div>
     </div>
   </div>
 </template>
@@ -107,6 +106,7 @@ import emergency from '../assets/images/emergency.png';
 import busImg from '../assets/images/busImg.png';
 import bulgaria from '../assets/images/bulgaria.png';
 import trucksblack from '../assets/images/trucksblack.png';
+import logo from '../assets/images/logo.png';
 
 export default {
   name: 'DefaultLayout',
@@ -116,6 +116,7 @@ export default {
       map,
       trucksblack,
       busImg,
+      logo,
       bulgaria,
       footerInfo: {
         columns: [
@@ -207,6 +208,18 @@ export default {
 
       elements.forEach(el => observer.observe(el));
     },
+    scrollToWhyUs() {
+      const whyUsSection = document.querySelector('.fourthPage');
+      if (whyUsSection) {
+        whyUsSection.scrollIntoView({ behavior: 'smooth' });
+      }
+    },
+    scrollToContact() {
+      const contactSection = document.querySelector('.ContactFormWrapper');
+      if (contactSection) {
+        contactSection.scrollIntoView({ behavior: 'smooth' });
+      }
+    },
     async submitForm() {
       if (!this.formData.name || !this.formData.email || !this.formData.phone) {
         alert('Моля, попълнете всички задължителни полета.');
@@ -275,7 +288,9 @@ export default {
   width: 100%;
   flex-direction: column;
 }
-
+.logo{
+  width:200px;
+}
 .secondPage {
   display: flex;
   width: 100%;
@@ -481,12 +496,13 @@ export default {
 
 .header {
   display: flex;
-  top: 0px;
+  top: 20px;
   justify-content: space-between;
   align-items: center;
   height: 100px;
   z-index: 4;
   width: 100%;
+  padding-top: 20px;
   padding-left: 40px;
   padding-right: 40px;
 }
