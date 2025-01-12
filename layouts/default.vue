@@ -189,7 +189,7 @@ export default {
     };
   },
   mounted() {
-    this.setupScrollAnimations();
+   // this.setupScrollAnimations();
   },
   methods: {
     setupScrollAnimations() {
