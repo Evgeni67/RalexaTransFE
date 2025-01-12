@@ -2,6 +2,10 @@ import colors from 'vuetify/es5/util/colors'
 
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
+  server: {
+    host: '0.0.0.0', // Bind to all interfaces
+    port: 3000       // Default port (you can change it if needed)
+  },
   head: {
     titleTemplate: '%s - nutsApp',
     title: 'nutsApp',
