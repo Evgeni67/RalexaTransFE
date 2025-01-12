@@ -1,6 +1,6 @@
 <template>
   <div class="mainWrapper">
-    <div class="landingPage animate-on-scroll">
+    <div class="landingPage ">
       <img :src="backgroundImg" class="background" />
       <div class="filter"></div>
       <div class="Content">
@@ -21,19 +21,19 @@
       </div>
     </div>
 
-    <div class="secondPage animate-on-scroll">
+    <div class="secondPage ">
       <div class="cardsContainer">
-        <div v-for="element in cards" :key="element.text" class="card animate-on-scroll" :class="!element.isWhite && 'cardNotWhite'">
+        <div v-for="element in cards" :key="element.text" class="card " :class="!element.isWhite && 'cardNotWhite'">
           <img :src="element.img" class="cardImg" />
           <span class="cardText">{{ element.text }}</span>
         </div>
       </div>
     </div>
 
-    <div class="thirdPage animate-on-scroll">
+    <div class="thirdPage ">
       <img :src="map" class="map" />
       <div class="bigCardsWrapper">
-        <div v-for="bigCard in bigCards" :key="bigCard.title" class="bigCard animate-on-scroll">
+        <div v-for="bigCard in bigCards" :key="bigCard.title" class="bigCard ">
           <img class="bigCardImg" :src="bigCard.cardImg" />
           <div class="bigCardHeader">{{ bigCard.title }}</div>
           <div v-for="bigCardText in bigCard.subTexts" :key="bigCardText" class="bigCardText">{{ bigCardText }}</div>
@@ -42,7 +42,7 @@
       <img class="busImg" :src="busImg" />
     </div>
 
-    <div class="fourthPage animate-on-scroll">
+    <div class="fourthPage ">
       <div class="Texts">
         <div class="Heading">Защо нас?</div>
         <div class="main">"Бързина и ефективност"</div>
@@ -60,7 +60,7 @@
       </div>
     </div>
 
-    <div class="ContactFormWrapper animate-on-scroll">
+    <div class="ContactFormWrapper ">
       <img :src="trucksblack" class="trucksBlack" />
       <div class="contactForm">
         <span class="contactHead">Свържете се с нас</span>
@@ -80,7 +80,7 @@
       </div>
     </div>
 
-    <div class="footer animate-on-scroll">
+    <div class="footer ">
       <div class="TopPart">
         <div v-for="column in footerInfo.columns" :key="column[0].text" class="columnWrapper">
           <div v-for="row in column" :key="row.text" class="column">
@@ -189,11 +189,11 @@ export default {
     };
   },
   mounted() {
-   // this.setupScrollAnimations();
+    this.setupScrollAnimations();
   },
   methods: {
     setupScrollAnimations() {
-      const elements = document.querySelectorAll('.animate-on-scroll');
+      const elements = document.querySelectorAll('.');
       const observer = new IntersectionObserver(
         (entries, observer) => {
           entries.forEach(entry => {
@@ -691,13 +691,13 @@ margin-top: 15px;
   height: 50px;
   padding-left: 15px;
 }
-.animate-on-scroll {
+. {
   opacity: 0;
   transform: translateY(30px);
   transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
 
-.animate-on-scroll.visible {
+..visible {
   opacity: 1;
   transform: translateY(0);
 }
