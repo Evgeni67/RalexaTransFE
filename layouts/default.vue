@@ -84,7 +84,7 @@
       <div class="TopPart">
         <div v-for="column in footerInfo.columns" :key="column[0].text" class="columnWrapper">
           <div v-for="row in column" :key="row.text" class="column">
-            <div class="Text">{{ row.text }}</div>
+            <div class="Text">{{ row.text }}</div> <img v-if="row.logo" :src ="logo" class="logo"/>
           </div>
         </div>
       </div>
@@ -120,10 +120,10 @@ export default {
       bulgaria,
       footerInfo: {
         columns: [
-          [{ text: 'Text' }, { text: 'Text' }, { text: 'Text' }],
-          [{ text: 'Text' }, { text: 'Text' }, { text: 'Text' }],
-          [{ text: 'Text' }, { text: 'Text' }, { text: 'Text' }],
-          [{ text: 'Text' }, { text: 'Text' }, { text: 'Text' }]
+          [{ text: 'Контакти' }, { text: 'Телефон: 0898662664' }, { text: 'Имейл ralexatrans@gmail.com' }],
+          [{ text: '' }, { text: '' }, { text: '' }],
+          [{ text: '' }, { text: '' }, { text: '' }],
+          [{ text: '' }, { text: '' }, { text: '',logo:true }]
         ]
       },
       cards: [
@@ -259,7 +259,8 @@ export default {
 .footer {
   display: flex;
   width: 100%;
-  background-color: white;
+  background-color: #252B42;
+  color:white;
   flex-direction: column;
   position: relative;
   z-index: 5;
@@ -411,7 +412,7 @@ export default {
 .trucksBlack{
   display: none !important;
 }
-
+.logo{width: 120px;}
 .ContactFormWrapper{
   margin-top: -40px !important;
 }
