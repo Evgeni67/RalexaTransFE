@@ -1,4 +1,3 @@
-import { useState } from "react";
 import styles from "./RalexaLanding.module.scss";
 
 import background from "./assets/images/logo2.jpg";
