@@ -1,0 +1,469 @@
+.footer {
+  display: flex;
+  width: calc(100% - 60px);
+  background-color: #252b42;
+  color: white;
+  flex-direction: column;
+  position: relative;
+  z-index: 5;
+  padding: 30px;
+  margin-top: 200px;
+}
+
+.TopPart {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.mainWrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100vh;
+}
+
+.Content {
+  display: flex;
+  position: absolute;
+  top: 0%;
+  width: 100%;
+  flex-direction: column;
+}
+
+.logo {
+  width: 200px;
+}
+
+.secondPage,
+.thirdPage {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #f3fffd;
+}
+
+.thirdPage {
+  position: relative;
+  padding-top: 50px;
+  z-index: 3;
+}
+
+.ContactFormWrapper {
+  display: flex;
+  width: 80%;
+  margin: -80px auto;
+  background-color: white;
+}
+
+.busImg {
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+  z-index: 0;
+}
+
+.bigCardsWrapper {
+  display: flex;
+  position: absolute;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  top: 50px;
+  gap: 25px;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  column-gap: 20px;
+  z-index: 5;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+
+  &:first-child {
+    font-weight: bold;
+  }
+}
+
+.bigCardImg {
+  width: 100px;
+}
+
+.bigCardText {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.bigCardHeader {
+  font-weight: bold;
+  font-size: 1.25rem;
+  margin: 25px 0;
+}
+
+.bigCard {
+  display: flex;
+  backdrop-filter: blur(10px);
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 0 15px;
+  flex-direction: column;
+  width: 70%;
+  max-width: 520px;
+  min-width: 350px;
+  height: 426px;
+  background-color: rgba(255, 255, 255, 0.75);
+  border-radius: 15px;
+  box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px,
+    rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
+}
+
+.midTextSection {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-weight: bold;
+  font-size: 2.75rem;
+  position: relative;
+  z-index: 3;
+}
+
+.landingPage {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  width: 100%;
+}
+
+.columnWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.MainBtn {
+  display: flex;
+  width: 150px;
+  height: 35px;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  background-color: #00cca6;
+  border-radius: 15px;
+  z-index: 4;
+  margin: 20px auto;
+  cursor: pointer;
+  outline: none;
+}
+
+.MainBtn2 {
+  width: 230px !important;
+  height: 50px !important;
+  font-size: 1.25rem;
+  margin-top: 0px;
+}
+
+.header {
+  display: flex;
+  top: 20px;
+  justify-content: space-between;
+  align-items: center;
+  height: 100px;
+  z-index: 4;
+  width: calc(100% - 80px);
+  padding: 20px 40px 0;
+}
+
+.subText {
+  display: flex;
+  width: 400px;
+  text-align: center;
+  margin: 20px auto;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 1.25rem;
+  letter-spacing: 1px;
+  position: relative;
+  z-index: 3;
+}
+
+.contactUs {
+  display: flex;
+  width: 170px;
+  height: 52px;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  background-color: #00cca6;
+  border-radius: 5px;
+}
+
+.background {
+  width: 100%;
+  min-width: 520px;
+  height: auto;
+}
+
+.filter {
+  position: absolute;
+  background-color: black;
+  opacity: 0.6;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+}
+
+.sendBtn {
+  display: flex;
+  width: 100%;
+  height: 50px;
+  background-color: #00cca6;
+  color: white;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.25rem;
+  margin-top: 35px;
+  border-radius: 5px;
+}
+
+.cardsContainer {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+  margin-top: -150px;
+  z-index: 5;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 328px;
+  padding: 40px 40px 20px;
+  background-color: white;
+  height: 220px;
+  font-weight: bold;
+  box-shadow: rgba(17, 17, 26, 0.05) 0px 4px 16px,
+    rgba(17, 17, 26, 0.05) 0px 8px 32px;
+  color: rgba(0, 0, 0, 0.85);
+}
+
+.cardImg {
+  width: 50px;
+  height: 50px;
+}
+
+.cardText {
+  width: 80%;
+  line-height: 35px;
+  font-size: 1.25rem;
+}
+
+.cardNotWhite {
+  color: white !important;
+  background-color: #00cca6;
+}
+
+.bulgaria {
+  width: 300px;
+}
+
+.trucksBlack {
+  width: 50%;
+  height: auto;
+}
+
+.fourthPage {
+  display: flex;
+  justify-content: center;
+  width: valv(100% - 20%);
+  background-color: #252b42;
+  padding: 10%;
+}
+
+.Big {
+  width: 100% !important;
+  border-radius: 5px !important;
+  height: 52px !important;
+  font-size: 1.25rem;
+}
+
+.ImageWithBtn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.Heading {
+  font-size: 1.75rem;
+  font-weight: bold;
+}
+
+.main {
+  font-size: 1.15rem;
+}
+
+.sub {
+  margin-bottom: 15px;
+}
+
+.Texts {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  color: white;
+  width: 80%;
+}
+
+.contactForm {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 50%;
+  padding: 25px;
+}
+
+.contactHead {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  font-weight: bold;
+  font-size: 1.75rem;
+  color: #252b42;
+  margin-top: 15px;
+  text-align: center;
+}
+
+.label {
+  font-weight: bold;
+  margin-top: 15px;
+  border-radius: 5px;
+}
+
+.inputText {
+  border-radius: 5px;
+  border: 2px solid #dddddd77;
+  background-color: #f9f9f9;
+  max-width: 100%;
+  height: 50px;
+  padding-left: 15px;
+}
+
+.hidden {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+// Media queries
+@media (max-width: 1080px) {
+  .trucksBlack {
+    display: none !important;
+  }
+
+  .logo {
+    width: 120px;
+  }
+
+  .ContactFormWrapper {
+    margin-top: -40px !important;
+  }
+
+  .inputText,
+  .contactForm {
+    width: 100% !important;
+  }
+
+  .thirdPage {
+    padding-bottom: 800px;
+  }
+
+  .header {
+    height: 70px !important;
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+    width: calc(100% - 20px);
+  }
+
+  .contactUs {
+    height: 35px !important;
+  }
+
+  .MainBtn {
+    height: 30px !important;
+    width: 120px !important;
+  }
+
+  .cardsContainer {
+    margin-top: 20px !important;
+  }
+}
+
+@media (max-width: 710px) {
+  .subText {
+    display: none !important;
+  }
+
+  .busImg {
+    width: 300px;
+  }
+
+  .thirdPage {
+    padding-bottom: 1320px;
+  }
+
+  .fourthPage {
+    flex-direction: column;
+  }
+}
+
+a {
+  outline: none !important;
+  border: none;
+  text-decoration: none !important;
+}
+@media (max-width: 710px) {
+  .MainBtn2 {
+    width: 100% !important;
+    font-size: 1.1rem;
+    padding: 10px;
+    text-align: center;
+    white-space: normal;
+  }
+
+  .footer {
+    flex-direction: column;
+    padding: 20px 15px;
+    width: 100%;
+  }
+
+  .TopPart {
+    flex-direction: column;
+    gap: 25px;
+  }
+
+  .columnWrapper {
+    width: 100%;
+  }
+
+  .column {
+    align-items: flex-start;
+  }
+}
