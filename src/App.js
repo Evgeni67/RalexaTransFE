@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState } from "react";
 import styles from "./RalexaLanding.module.scss";
 
 import background from "./assets/images/logo2.jpg";
@@ -6,13 +6,9 @@ import handshake from "./assets/images/handshake.png";
 import truck from "./assets/images/truck.png";
 import blank from "./assets/images/blank.png";
 import map from "./assets/images/map.png";
-import cityscape from "./assets/images/cityscape.png";
 import cargo from "./assets/images/cargo.png";
-import waterTruck from "./assets/images/waterTruck2.png";
-import emergency from "./assets/images/emergency.png";
 import busImg from "./assets/images/busImg.png";
 import bulgaria from "./assets/images/bulgaria.png";
-import trucksblack from "./assets/images/trucksblack.png";
 import logo from "./assets/images/logo.png";
 
 const App = () => {
