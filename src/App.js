@@ -88,37 +88,37 @@ const App = () => {
     ],
   };
 
-  const scrollToSection = (className) => {
-    const section = document.querySelector(`.${className}`);
-    section && section.scrollIntoView({ behavior: "smooth" });
-  };
+  // const scrollToSection = (className) => {
+  //   const section = document.querySelector(`.${className}`);
+  //   section && section.scrollIntoView({ behavior: "smooth" });
+  // };
 
-  const submitForm = async () => {
-    const { name, email, phone } = formData;
-    if (!name || !email || !phone)
-      return alert("Моля, попълнете всички задължителни полета.");
+  // const submitForm = async () => {
+  //   const { name, email, phone } = formData;
+  //   if (!name || !email || !phone)
+  //     return alert("Моля, попълнете всички задължителни полета.");
 
-    try {
-      const response = await fetch(
-        "https://ralexatrans.netlify.app/api/send-email",
-        {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            ...formData,
-            company: formData.company || "Не е посочено",
-          }),
-        }
-      );
-      if (response.ok) {
-        alert("Вашето съобщение беше изпратено успешно!");
-        setFormData({ name: "", email: "", company: "", phone: "" });
-      } else alert("Възникна проблем при изпращането на съобщението.");
-    } catch (err) {
-      console.error(err);
-      alert("Възникна грешка при свързване със сървъра.");
-    }
-  };
+  //   try {
+  //     const response = await fetch(
+  //       "https://ralexatrans.netlify.app/api/send-email",
+  //       {
+  //         method: "POST",
+  //         headers: { "Content-Type": "application/json" },
+  //         body: JSON.stringify({
+  //           ...formData,
+  //           company: formData.company || "Не е посочено",
+  //         }),
+  //       }
+  //     );
+  //     if (response.ok) {
+  //       alert("Вашето съобщение беше изпратено успешно!");
+  //       setFormData({ name: "", email: "", company: "", phone: "" });
+  //     } else alert("Възникна проблем при изпращането на съобщението.");
+  //   } catch (err) {
+  //     console.error(err);
+  //     alert("Възникна грешка при свързване със сървъра.");
+  //   }
+  // };
 
   return (
     <div className={styles.mainWrapper}>
