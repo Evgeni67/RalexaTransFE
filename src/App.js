@@ -12,12 +12,12 @@ import bulgaria from "./assets/images/bulgaria.png";
 import logo from "./assets/images/logo.png";
 
 const App = () => {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    company: "",
-    phone: "",
-  });
+  // const [formData, setFormData] = useState({
+  //   name: "",
+  //   email: "",
+  //   company: "",
+  //   phone: "",
+  // });
 
   const cards = [
     {
