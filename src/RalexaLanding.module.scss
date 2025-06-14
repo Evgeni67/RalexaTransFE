@@ -208,7 +208,6 @@
 
 .background {
   width: 100%;
-  min-width: 520px;
   height: auto;
 }
 
@@ -451,7 +450,7 @@ a {
   .footer {
     flex-direction: column;
     padding: 20px 15px;
-    width: 100%;
+    width: calc(100% - 30px);
   }
 
   .TopPart {
